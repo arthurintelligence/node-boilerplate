@@ -1,0 +1,85 @@
+{
+  "name": "node-boilerplate",
+  "version": "1.0.0",
+  "description": "Basic boilerplate to start working with Node.js",
+  "main": "src/index.js",
+  "repository": "https://github.com/arthurintelligence/node-boilerplate",
+  "author": "philippefutureboy <philippe@human.space>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=12.10"
+  },
+  "scripts": {
+    "start": "node -r @babel/register ./src/index.js",
+    "lint": "eslint ./src --ext .mjs,.js && prettier --check ./src/**/*{.js,.mjs}",
+    "lint:fix": "eslint ./src --ext .mjs,.js --fix && prettier --write ./src/**/*{.js,.mjs}",
+    "dev": "nodemon -e mjs,js --ignore *.test.* --exec \"babel-node --inspect ./src/index.js\"",
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.19.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "jest-environment-node": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "nodemon": "^1.19.4",
+    "prettier": "1.18.2"
+  },
+  "lint-staged": {
+    "src/**/*.{mjs,js,jsx}": [
+      "npm run --silent lint:fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{mjs,js}"
+    ],
+    "setupFiles": [],
+    "setupFilesAfterEnv": [],
+    "testMatch": [
+      "<rootDir>/src/**/*.{itest,test}.{mjs,js}"
+    ],
+    "testEnvironment": "jest-environment-node",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(mjs|js)$"
+    ],
+    "modulePaths": [],
+    "moduleFileExtensions": [
+      "mjs",
+      "js",
+      "json"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": [
+    "babel",
+    "import",
+    "promise",
+    "prettier"
+  ],
+  "env": {
+    "node": true
+  },
+  "rules": {},
+  "overrides": [
+    {
+      "files": [
+        "**/__mocks__/*.js",
+        "**/__mockData__/*.js",
+        "**/*.test.js",
+        "**/*.spec.js",
+        "**/*.stubs.js"
+      ],
+      "env": {
+        "jest/globals": true
+      },
+      "plugins": ["jest"],
+      "rules": {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
+      }
+    }
+  ]
+}

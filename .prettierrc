@@ -1,0 +1,6 @@
+{
+  "eslintIntegration": true,
+  "trailingComma": "es5",
+  "arrowParens": "always",
+  "singleQuote": true
+}
