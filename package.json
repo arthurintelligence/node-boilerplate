@@ -2,8 +2,8 @@
   "name": "node_boilerplate",
   "private": true,
   "main": "src/index.js",
-  "engines" : { 
-    "node" : ">=13.10"
+  "engines": {
+    "node": ">=13.10"
   },
   "scripts": {
     "build": "cross-env BABEL_ENV=commonjs babel --copy-files -d build/ src/",

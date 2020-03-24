@@ -9,6 +9,8 @@ Basic dockerized boilerplate to start working with Node.js
 
 To ease your experience, use the [Node Version Manager for UNIX](https://github.com/nvm-sh/nvm)
 or the [Node Version Manager for Windows](https://github.com/coreybutler/nvm-windows).
+Otherwise you can install the specified version in package.json by yourself by downloading
+the right node.js distribution from the official site.
 
 1. Install the necessary versions of node & npm on your machine as defined in `package.json:engines.node`
   ```sh
@@ -66,6 +68,9 @@ For all setups, the `start*` and `dev` scripts run `./scripts/withEnv.js` to fil
 to avoid exposing secrets and environment from other processes.
 The filter for the variable can be specified as a regular expression as an environment variable as `ENV_FILTER_PREFIX_REGEX` and defaults to `/^NODE_BOILERPLATE_/i`. Hence, all of your custom environment
 variables must match the resolved value of `ENV_FILTER_PREFIX_REGEX`.
+
+Take note that if you modify the ENV_FILTER_PREFIX_REGEX, take care to modify the `NODE_BOILERPLATE_PORT`
+and `NODE_BOILERPLATE_TLS_PORT` variables in docker-compose to match the new prefix.
 
 This feature was extracted from [create-react-app](https://create-react-app.dev/docs/adding-custom-environment-variables/).
 
