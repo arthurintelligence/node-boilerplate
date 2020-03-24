@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  node:
+    container_name: node_boilerplate_server
+    build:
+      context: .
+    user: node
+    ports:
+      - "8080:8080"
+      - "4433:4433"
+    restart: always
+    environment:
+      - NODE_ENV=${DOCKER_ENV:-production}
+      - NODE_BOILERPLATE_PORT=8080
+      - NODE_BOILERPLATE_TLS_PORT=4433
+    env_file:
+      - .env
+      - .env.${DOCKER_ENV:-production}
+      - .env.${DOCKER_ENV:-production}.local

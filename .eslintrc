@@ -4,7 +4,10 @@
     "sourceType": "module",
     "allowImportExportEverywhere": true
   },
-  "extends": ["airbnb-base", "prettier"],
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
   "plugins": [
     "babel",
     "import",
@@ -14,7 +17,14 @@
   "env": {
     "node": true
   },
-  "rules": {},
+  "rules": {
+    "import/prefer-default-export": "off",
+    "no-restricted-syntax": "off",
+    "no-console": "off",
+    "no-use-before-define": "off",
+    "no-var": "off",
+    "vars-on-top": "off"
+  },
   "overrides": [
     {
       "files": [
@@ -27,7 +37,9 @@
       "env": {
         "jest/globals": true
       },
-      "plugins": ["jest"],
+      "plugins": [
+        "jest"
+      ],
       "rules": {
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",
